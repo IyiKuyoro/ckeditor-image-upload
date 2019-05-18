@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 import { CloudinaryImageUploadAdapter } from 'ckeditor-cloudinary-uploader-adapter';
 import { IArticle } from 'src/models/IArticle';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -16,7 +17,7 @@ export class EditorComponent implements OnInit {
   };
   article: IArticle;
 
-  constructor() {
+  constructor(private router: Router) {
     this.article = {
       title: '',
       text: '',
@@ -31,6 +32,8 @@ export class EditorComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {}
+  onSubmit() {
+    this.router.navigate(['/view'], { state: this.article});
+  }
 
 }
