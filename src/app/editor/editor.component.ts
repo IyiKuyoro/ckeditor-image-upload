@@ -26,7 +26,7 @@ export class EditorComponent implements OnInit {
 
   imagePluginFactory(editor) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-      return new CloudinaryImageUploadAdapter( loader, 'dhll7rphp', 'wz5of6ga', [ 160, 500, 1000, 1052 ]);
+      return new CloudinaryImageUploadAdapter( loader, '<your_cloud_name>', '<your_unsigned_upload_preset>', [ 160, 500, 1000, 1052 ]);
     };
   }
 
