@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
-import { CloudinaryImageUploadAdapter } from 'ckeditor-cloudinary-uploader-adapter';
+import { CloudinaryUnsigned } from 'puff-puff/CKEditor';
 import { IArticle } from 'src/models/IArticle';
 import { Router } from '@angular/router';
 
@@ -26,7 +26,7 @@ export class EditorComponent implements OnInit {
 
   imagePluginFactory(editor) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-      return new CloudinaryImageUploadAdapter( loader, '<your_cloud_name>', '<your_unsigned_upload_preset>', [ 160, 500, 1000, 1052 ]);
+      return new CloudinaryUnsigned( loader, <your_cloud_name>, <your_unsigned_upload_preset>, [ 160, 500, 1000, 1052 ]);
     };
   }
 
